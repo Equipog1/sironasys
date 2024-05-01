@@ -14,7 +14,7 @@ class PROVEDORESCONTROLLER extends Controller
      */
     public function index()
     {
-        $data = Student::latest()->paginate(5);
+        $data = PROVEDORES ::latest()->paginate(5);
 
         return view('index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -48,9 +48,8 @@ class PROVEDORESCONTROLLER extends Controller
         $provedor->provedor_name = $request->PROVEDORES_name;
         $provedor->provedor_email = $request->PROVEDORES_email;
         $provedor->provedor_gender = $request->PROVEDORES_gender;
-        $provedor->provedor_image = $file_name;
 
-        $student->save();
+        $PROVEDOR->save();
 
         return redirect()->route('PROVEDORES.index')->with('success', 'PROVEDORES Added successfully.');
     }
